@@ -1,0 +1,28 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name me.offcampus4u.com;
+
+	root /var/www/html/main-company/dist;
+	index index.html;
+	
+	location / {
+                try_files $uri /index.html;
+        }	
+	
+	location ^~ /images {
+	    alias /var/www/html/main-company/src/images;
+
+	    add_header Cache-control "public";
+	    access_log   off;
+	    expires      90d;
+	}
+
+	location ~* ^.+\.(jpeg|gif|png|jpg) {
+	    add_header Cache-control "public";
+	    access_log   off;
+	    expires      90d;
+	}
+	
+}
