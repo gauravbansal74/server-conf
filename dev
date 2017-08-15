@@ -2,9 +2,9 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name *.offcampus4u.com;
+	server_name dev.offcampus4u.com;
 
-	root /var/www/html/main-company/dist;
+	root /var/www/html/main-app/dist;
 	index index.html;
 	
 	location / {
